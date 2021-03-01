@@ -1,3 +1,4 @@
+import 'styles/globals.css'
 import { GlobalStyles } from 'twin.macro'
 
 import * as nextImage from 'next/image'
@@ -42,7 +43,6 @@ export const parameters = {
 export const decorators = [
   Story => (
     <div>
-      {/* */}
       <GlobalStyles/>
       <Story/>
     </div>
