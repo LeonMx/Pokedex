@@ -2,7 +2,12 @@ import { FC } from 'react'
 import 'twin.macro'
 
 const Spinner: FC = () => (
-  <svg tw="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+  <svg
+    tw="inline animate-spin h-5 w-5"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
     <circle tw="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
     <path
       tw="opacity-75"

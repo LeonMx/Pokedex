@@ -21,7 +21,12 @@ export type InputProps = {
 } & InputHTMLAttrs
 
 const Input: FC<InputProps> = (props) => (
-  <input css={[tw`shadow appearance-none border rounded py-1 px-2 text-gray-600`]} {...props} />
+  <input
+    css={[
+      tw`shadow appearance-none border rounded py-1 px-2 text-gray-600 focus:outline-none focus:ring focus:border-blue-300 disabled:bg-gray-300`,
+    ]}
+    {...props}
+  />
 )
 
 export default Input

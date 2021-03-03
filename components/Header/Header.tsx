@@ -13,7 +13,7 @@ const Header: FC<HeaderProps> = ({
 }) => (
   <nav
     className={`bg-${backgroundColor} text-${textColor}`}
-    css={[tw`flex items-center justify-between flex-wrap p-4`]}
+    css={[tw`sticky top-0 shadow flex items-center justify-between h-14 px-2 z-50`]}
     {...props}
   />
 )
