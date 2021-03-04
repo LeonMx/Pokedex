@@ -56,12 +56,4 @@ const Button: FC<ButtonProps> = ({
   />
 )
 
-// focus:outline-none
-//
-// hover:bg-opacity-90
-// focus:bg-opacity-90
-// disabled:opacity-50
-// disabled:hover:shadow-none
-// disabled:hover:bg-opacity-100
-
 export default Button

@@ -30,10 +30,13 @@
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.0",
+    "axios": "^0.21.1",
+    "axios-retry": "^3.1.9",
     "next": "^10.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
+    "react-intersection-observer": "^8.31.0",
     "sass": "^1.32.8",
     "twin.macro": "^2.2.3"
   },

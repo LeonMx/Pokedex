@@ -3,19 +3,19 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   'type-normal': {
     DEFAULT: '#A8A878',
-    contrast: colors.black,
+    contrast: colors.white,
   },
   'type-fighting': {
     DEFAULT: '#C03028',
-    contrast: colors.black,
+    contrast: colors.white,
   },
   'type-flying': {
     DEFAULT: '#A890F0',
-    contrast: colors.black,
+    contrast: colors.white,
   },
   'type-poison': {
     DEFAULT: '#A040A0',
-    contrast: colors.black,
+    contrast: colors.white,
   },
   'type-ground': {
     DEFAULT: '#E0C068',
@@ -23,7 +23,7 @@ module.exports = {
   },
   'type-rock': {
     DEFAULT: '#B8A038',
-    contrast: colors.black,
+    contrast: colors.white,
   },
   'type-bug': {
     DEFAULT: '#A8B820',
@@ -39,7 +39,7 @@ module.exports = {
   },
   'type-fire': {
     DEFAULT: '#F08030',
-    contrast: colors.black,
+    contrast: colors.white,
   },
   'type-water': {
     DEFAULT: '#6890F0',
@@ -55,7 +55,7 @@ module.exports = {
   },
   'type-psychic': {
     DEFAULT: '#F85888',
-    contrast: colors.black,
+    contrast: colors.white,
   },
   'type-ice': {
     DEFAULT: '#98D8D8',
@@ -71,7 +71,7 @@ module.exports = {
   },
   'type-fairy': {
     DEFAULT: '#EE99AC',
-    contrast: colors.black,
+    contrast: colors.white,
   },
   'type-unknown': {
     DEFAULT: '#68A090',
