@@ -1,20 +1,42 @@
 import 'styles/globals.css'
+import { useState, useEffect } from 'react'
 import { GlobalStyles } from 'twin.macro'
 import type { AppProps } from 'next/app'
-import Head from 'next/head'
+import { Router } from 'next/router'
+import AppLayout from 'components/AppLayout'
+import Spinner from 'components/Spinner'
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    const start = () => void setLoading(true)
+    const end = () => void setLoading(false)
+
+    Router.events.on('routeChangeStart', start)
+    Router.events.on('routeChangeComplete', end)
+    Router.events.on('routeChangeError', end)
+
+    return () => {
+      Router.events.off('routeChangeStart', start)
+      Router.events.off('routeChangeComplete', end)
+      Router.events.off('routeChangeError', end)
+    }
+  }, [])
+
   return (
     <>
-      <Head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
-      </Head>
       <GlobalStyles />
-      <Component {...pageProps} />
+
+      <AppLayout>
+        {loading && (
+          <div>
+            <Spinner /> Loading...
+          </div>
+        )}
+
+        {!loading && <Component {...pageProps} />}
+      </AppLayout>
     </>
   )
 }

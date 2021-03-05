@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import tw, { styled, css, TwStyle } from 'twin.macro'
+import tw, { styled, css, TwStyle, theme } from 'twin.macro'
 
 export const SIZE = {
   XS: 'xs',
@@ -21,7 +21,7 @@ export type ProgressBarProps = {
   percentage?: number
   size?: Size
   backgroundColor?: string
-  textColor?: string
+  color?: string
 }
 
 const StyledContainer = styled.div<Pick<ProgressBarProps, 'size'>>`
@@ -30,24 +30,26 @@ const StyledContainer = styled.div<Pick<ProgressBarProps, 'size'>>`
   line-height: initial;
 `
 
-const StyledFiller = styled.div<Pick<ProgressBarProps, 'percentage'>>`
+const StyledFiller = styled.div<Pick<ProgressBarProps, 'percentage' | 'backgroundColor' | 'color'>>`
   ${tw`flex items-center justify-center h-full rounded text-center text-white`}
-  ${({ percentage }) => css`
+  ${({ percentage, backgroundColor, color }) => css`
     width: ${percentage <= 100 ? percentage : 100}%;
+    ${backgroundColor && `background-color: ${backgroundColor};`}
+    ${color && `color: ${color};`}
+    transition: width 2s;
   `}
-  transition: width 2s;
 `
 
 const ProgressBar: FC<ProgressBarProps> = ({
   percentage = 0,
   size = SIZE.MD,
-  backgroundColor = 'blue-600',
-  textColor = 'white',
+  backgroundColor = theme`colors.blue.600`,
+  color = theme`colors.white`,
   children,
 }) => {
   return (
     <StyledContainer size={size}>
-      <StyledFiller className={`bg-${backgroundColor} text-${textColor}`} percentage={percentage}>
+      <StyledFiller backgroundColor={backgroundColor} color={color} percentage={percentage}>
         {children}
       </StyledFiller>
     </StyledContainer>

@@ -1,12 +1,15 @@
-import { forwardRef, memo } from 'react'
+import { FC, memo } from 'react'
 import tw from 'twin.macro'
 import Image from 'next/image'
 import Card from 'components/Card'
 import Badge from 'components/Badge'
 import Spinner from 'components/Spinner'
-import { isPokemonResolved, PokemonData } from 'types/pokemon'
+import { isPokemonResolved, PokemonData } from 'utils/types'
+import { POKEMON_TYPE_COLOR, POKEMON_TYPE_COLOR_CONTRAST } from 'utils/constants'
 
-type PokemonCardProps = { pokemon: PokemonData }
+type PokemonCardProps = {
+  pokemon: PokemonData
+}
 
 const StyledCard = tw(Card)`
   flex
@@ -28,10 +31,10 @@ const StyledCard = tw(Card)`
   )
 `
 
-const PokemonCard = forwardRef<HTMLDivElement, PokemonCardProps>(({ pokemon }, ref) => {
+const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
   if (!isPokemonResolved(pokemon))
     return (
-      <StyledCard ref={ref}>
+      <StyledCard>
         <Spinner />
       </StyledCard>
     )
@@ -39,7 +42,7 @@ const PokemonCard = forwardRef<HTMLDivElement, PokemonCardProps>(({ pokemon }, r
   const { id, name, sprites, types } = pokemon
 
   return (
-    <StyledCard ref={ref} hoverEffect>
+    <StyledCard hoverEffect>
       <div css={tw`flex-none self-end text-sm font-bold`}>#{id}</div>
       <div css={tw`flex flex-grow justify-center items-center`}>
         {sprites.front_default ? (
@@ -53,8 +56,8 @@ const PokemonCard = forwardRef<HTMLDivElement, PokemonCardProps>(({ pokemon }, r
         {types.map(({ type: { name: typeName } }, index) => (
           <Badge
             key={index}
-            backgroundColor={`type-${typeName}`}
-            textColor={`type-${typeName}-contrast`}
+            backgroundColor={POKEMON_TYPE_COLOR[typeName]}
+            color={POKEMON_TYPE_COLOR_CONTRAST[typeName]}
           >
             {typeName.toUpperCase()}
           </Badge>
@@ -62,8 +65,6 @@ const PokemonCard = forwardRef<HTMLDivElement, PokemonCardProps>(({ pokemon }, r
       </div>
     </StyledCard>
   )
-})
-
-PokemonCard.displayName = 'PokemonCard'
+}
 
 export default memo(PokemonCard)

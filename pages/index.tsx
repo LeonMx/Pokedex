@@ -1,13 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { NextPage, GetServerSideProps } from 'next'
-import Link from 'next/link'
-import Image from 'next/image'
-import tw from 'twin.macro'
-import AppLayout from 'components/AppLayout'
-import Header from 'components/Header'
-import Search from 'components/Search'
 import { getPokemons, getPokemon, ResponseGetPokemons } from 'api/pokemon'
-import { isPokemonResolved, PokemonData } from 'types/pokemon'
+import { isPokemonResolved, PokemonData } from 'utils/types'
 import PokemonCards from 'components/PokemonCards'
 
 const LIMIT = 20
@@ -19,7 +13,6 @@ type IndexPageProps = {
 
 const IndexPage: NextPage<IndexPageProps> = ({ pokemons }) => {
   const [loadingPokemonList, setLoadingPokemonList] = useState(false)
-  const [isInputInFocus, setIsInputInFocus] = useState(false)
   const [isLastCardSeen, setIsLastCardSeen] = useState(false)
   const [noMore, setNoMore] = useState(false)
   const [pokemonsMap] = useState(new Map<PokemonData['name'], PokemonData>())
@@ -38,9 +31,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ pokemons }) => {
     setLoadingPokemonList(true)
   }, [page])
 
-  const handleLastCardSeen = (): void => {
-    setIsLastCardSeen(true)
-  }
+  const handleLastCardSeen = () => void setIsLastCardSeen(true)
 
   useEffect(() => {
     if (!pokemonsBacklog.length) {
@@ -67,7 +58,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ pokemons }) => {
 
       setPokemonToList(pokemon)
 
-      return getPokemon({ name })
+      return getPokemon({ idOrName: name })
         .then((pokemon) => {
           setPokemonToList(pokemon)
           return pokemon
@@ -90,33 +81,15 @@ const IndexPage: NextPage<IndexPageProps> = ({ pokemons }) => {
   }, [noMore, loadingPokemonList, isLastCardSeen, loadMorePokemos])
 
   return (
-    <AppLayout>
-      <Header backgroundColor="red-700">
-        <Link href="/">
-          <a css={[tw`mr-2 min-w-max`, isInputInFocus && tw`hidden sm:block`]}>
-            <Image src="/logo.png" width={150} height={45} layout="intrinsic" />
-          </a>
-        </Link>
-
-        <Search
-          css={tw`flex flex-auto min-w-0 max-w-full sm:max-w-sm`}
-          onFocus={() => setIsInputInFocus(true)}
-          onBlur={() => setIsInputInFocus(false)}
-        />
-      </Header>
-
-      <div className="container my-4 mx-auto sm:my-6">
-        <PokemonCards
-          pokemons={pokemonList}
-          loading={loadingPokemonList}
-          onLastCardSeen={handleLastCardSeen}
-        />
-      </div>
-    </AppLayout>
+    <PokemonCards
+      pokemons={pokemonList}
+      loading={loadingPokemonList}
+      onLastCardSeen={handleLastCardSeen}
+    />
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps<IndexPageProps> = async () => {
   const { results: pokemons }: ResponseGetPokemons = await getPokemons().catch(() => ({
     count: 0,
     next: null,

@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, FC } from 'react'
-import tw from 'twin.macro'
+import tw, { css, theme } from 'twin.macro'
 
 type ButtonHTMLAttrs = Pick<
   ButtonHTMLAttributes<HTMLButtonElement>,
@@ -8,16 +8,15 @@ type ButtonHTMLAttrs = Pick<
 
 export type ButtonProps = {
   backgroundColor?: string
-  textColor?: string
+  color?: string
 } & ButtonHTMLAttrs
 
 const Button: FC<ButtonProps> = ({
-  backgroundColor = `blue-600`,
-  textColor = 'white',
+  backgroundColor = theme`colors.blue.600`,
+  color = theme`colors.white`,
   ...rest
 }) => (
   <button
-    className={`bg-${backgroundColor} text-${textColor}`}
     css={[
       tw`
         relative
@@ -29,28 +28,41 @@ const Button: FC<ButtonProps> = ({
         rounded
         text-white
         shadow
-        before:empty-content
-        before:hidden
-        before:absolute
-        before:inset-0
-        before:rounded
-        before:bg-white
-        before:z-0
-        hover:shadow-lg
-        hover:before:block
-        hover:before:opacity-10
-        focus:shadow-lg
-        focus:outline-none
-        focus:before:block
-        focus:before:bg-black
-        focus:before:opacity-20
-        disabled:bg-gray-300
-        disabled:text-gray-500
-        disabled:cursor-default
-        disabled:hover:shadow-none
-        disabled:before:hidden
+        before:(
+          empty-content
+          hidden
+          absolute
+          inset-0
+          rounded
+          bg-white
+          z-0
+        )
+        hover:(
+          shadow-lg
+          before:(
+            block
+            opacity-10
+          )
+        )
+        focus:(
+          shadow-lg
+          outline-none
+          before:(
+            block
+            bg-black
+            opacity-20
+          )
+        )
+        disabled:(
+          bg-gray-300
+          text-gray-500
+          cursor-default
+          hover:shadow-none
+          before:hidden
+        )
         all-child:z-10
       `,
+      css({ backgroundColor, color }),
     ]}
     {...rest}
   />

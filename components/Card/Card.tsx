@@ -4,6 +4,7 @@ import tw from 'twin.macro'
 export type CardProps = {
   hoverEffect?: boolean
   children?: ReactNode
+  onClick?: () => void
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(({ hoverEffect, ...rest }, ref) => (
