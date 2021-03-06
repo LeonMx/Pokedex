@@ -2,6 +2,7 @@ import 'styles/globals.css'
 import { useState, useEffect } from 'react'
 import { GlobalStyles } from 'twin.macro'
 import type { AppProps } from 'next/app'
+import ErrorPage from 'next/error'
 import { Router } from 'next/router'
 import AppLayout from 'components/AppLayout'
 import Spinner from 'components/Spinner'
@@ -24,18 +25,20 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
     }
   }, [])
 
+  const { error } = pageProps
+
   return (
     <>
       <GlobalStyles />
 
       <AppLayout>
         {loading && (
-          <div>
+          <>
             <Spinner /> Loading...
-          </div>
+          </>
         )}
-
-        {!loading && <Component {...pageProps} />}
+        {error && <ErrorPage statusCode={error.statusCode} message={error.message} />}
+        {!error && !loading && <Component {...pageProps} />}
       </AppLayout>
     </>
   )

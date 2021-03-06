@@ -1,14 +1,13 @@
 import { useState, useEffect, useCallback } from 'react'
 import { NextPage, GetServerSideProps } from 'next'
-import { getPokemons, getPokemon, ResponseGetPokemons } from 'api/pokemon'
+import { getPokemons, getPokemon } from 'api/pokemon'
 import { isPokemonResolved, PokemonData } from 'utils/types'
 import PokemonCards from 'components/PokemonCards'
 
 const LIMIT = 20
-const START_PAGE = 1
 
 type IndexPageProps = {
-  pokemons: Array<PokemonData>
+  pokemons?: Array<PokemonData>
 }
 
 const IndexPage: NextPage<IndexPageProps> = ({ pokemons }) => {
@@ -16,9 +15,9 @@ const IndexPage: NextPage<IndexPageProps> = ({ pokemons }) => {
   const [isLastCardSeen, setIsLastCardSeen] = useState(false)
   const [noMore, setNoMore] = useState(false)
   const [pokemonsMap] = useState(new Map<PokemonData['name'], PokemonData>())
-  const [pokemonsBacklog, setPokemonsBacklog] = useState(pokemons)
-  const [pokemonList, setPokemonList] = useState<Array<PokemonData>>(pokemons)
-  const [page, setPage] = useState(START_PAGE)
+  const [pokemonsBacklog, setPokemonsBacklog] = useState(pokemons ?? [])
+  const [pokemonList, setPokemonList] = useState(pokemons)
+  const [page, setPage] = useState(pokemons ? 1 : 0)
 
   const loadMorePokemos = useCallback((): void => {
     const offset = page * LIMIT
@@ -58,7 +57,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ pokemons }) => {
 
       setPokemonToList(pokemon)
 
-      return getPokemon({ idOrName: name })
+      return getPokemon(name)
         .then((pokemon) => {
           setPokemonToList(pokemon)
           return pokemon
@@ -73,6 +72,10 @@ const IndexPage: NextPage<IndexPageProps> = ({ pokemons }) => {
       setLoadingPokemonList(false)
     })
   }, [pokemonsBacklog, pokemonsMap])
+
+  useEffect(() => {
+    !pokemons && loadMorePokemos()
+  }, [pokemons, loadMorePokemos])
 
   useEffect(() => {
     if (!noMore && !loadingPokemonList && isLastCardSeen) {
@@ -90,16 +93,11 @@ const IndexPage: NextPage<IndexPageProps> = ({ pokemons }) => {
 }
 
 export const getServerSideProps: GetServerSideProps<IndexPageProps> = async () => {
-  const { results: pokemons }: ResponseGetPokemons = await getPokemons().catch(() => ({
-    count: 0,
-    next: null,
-    previous: null,
-    results: [],
-  }))
+  const response = await getPokemons().catch(() => undefined)
 
   return {
     props: {
-      pokemons,
+      pokemons: response?.results ?? [],
     },
   }
 }

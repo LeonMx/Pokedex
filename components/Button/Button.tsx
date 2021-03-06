@@ -11,9 +11,12 @@ export type ButtonProps = {
   color?: string
 } & ButtonHTMLAttrs
 
+const backgroundColorDefault = theme`colors.blue.600`
+const colorDefault = theme`colors.white`
+
 const Button: FC<ButtonProps> = ({
-  backgroundColor = theme`colors.blue.600`,
-  color = theme`colors.white`,
+  backgroundColor = backgroundColorDefault,
+  color = colorDefault,
   ...rest
 }) => (
   <button

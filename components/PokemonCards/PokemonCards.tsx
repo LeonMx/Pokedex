@@ -7,7 +7,7 @@ import Spinner from 'components/Spinner'
 import PokemonCard from './PokemonCard'
 
 type PokemonCardsProps = {
-  pokemons: Array<PokemonData>
+  pokemons?: Array<PokemonData>
   loading?: boolean
   onLastCardSeen?: () => void
 }
@@ -29,7 +29,7 @@ const PokemonCards: FC<PokemonCardsProps> = ({ pokemons, loading, onLastCardSeen
 
   return (
     <WrapperPokemonCard>
-      {pokemons.map((pokemon, index) => (
+      {pokemons?.map((pokemon, index) => (
         <Link key={index} href={`/pokemon/${pokemon.name}`}>
           <a ref={index === pokemons.length - 1 ? lastCardRef : null}>
             <PokemonCard pokemon={pokemon} />

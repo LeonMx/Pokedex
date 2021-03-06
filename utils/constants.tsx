@@ -68,3 +68,29 @@ export const POKEMON_TYPE_COLOR_CONTRAST = {
   [POKEMON_TYPE.UNKNOWN]: theme`colors.type-unknown.contrast`,
   [POKEMON_TYPE.SHADOW]: theme`colors.type-shadow.contrast`,
 }
+
+export const STATS = {
+  HP: 'hp',
+  ATTACK: 'attack',
+  DEFENSE: 'defence',
+  SPECIAL_ATTACK: 'special-attack',
+  SPECIAL_DEFENCE: 'special-defence',
+  SPEED: 'speed',
+}
+
+export const DAMAGE = {
+  DODLE: 2,
+  NORMAL: 1,
+  HALF: 0.5,
+  QUARTER: 0.25,
+  NONE: 0,
+}
+
+export const DAMAGE_EFFECTIVENESS = {
+  double_damage_from: 2,
+  double_damage_to: 2,
+  half_damage_from: 0.5,
+  half_damage_to: 0.5,
+  no_damage_from: 0,
+  no_damage_to: 0,
+}

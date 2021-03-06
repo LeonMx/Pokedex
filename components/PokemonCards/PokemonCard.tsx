@@ -2,10 +2,9 @@ import { FC, memo } from 'react'
 import tw from 'twin.macro'
 import Image from 'next/image'
 import Card from 'components/Card'
-import Badge from 'components/Badge'
+import TypeChip from 'components/TypeChip'
 import Spinner from 'components/Spinner'
 import { isPokemonResolved, PokemonData } from 'utils/types'
-import { POKEMON_TYPE_COLOR, POKEMON_TYPE_COLOR_CONTRAST } from 'utils/constants'
 
 type PokemonCardProps = {
   pokemon: PokemonData
@@ -52,15 +51,9 @@ const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
         )}
       </div>
       <div css={tw`flex-none my-2 font-bold capitalize`}>{name}</div>
-      <div css={tw`flex-none flex-wrap space-x-2`}>
-        {types.map(({ type: { name: typeName } }, index) => (
-          <Badge
-            key={index}
-            backgroundColor={POKEMON_TYPE_COLOR[typeName]}
-            color={POKEMON_TYPE_COLOR_CONTRAST[typeName]}
-          >
-            {typeName.toUpperCase()}
-          </Badge>
+      <div css={tw`flex-none flex-wrap`}>
+        {types.map(({ type: { name } }, index) => (
+          <TypeChip key={index} type={name} />
         ))}
       </div>
     </StyledCard>

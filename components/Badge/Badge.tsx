@@ -8,11 +8,14 @@ export type BadgeProps = {
   color?: string
 }
 
+const backgroundColorDefault = theme`colors.gray.200`
+const colorDefault = theme`colors.gray.600`
+
 const Badge: FC<BadgeProps> = ({
   pill,
   hoverEffect,
-  backgroundColor = theme`colors.gray.200`,
-  color = theme`colors.gray.600`,
+  backgroundColor = backgroundColorDefault,
+  color = colorDefault,
   ...rest
 }) => (
   <span

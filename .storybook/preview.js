@@ -42,10 +42,10 @@ export const parameters = {
 
 export const decorators = [
   Story => (
-    <div>
+    <>
       <GlobalStyles/>
       <Story/>
-    </div>
+    </>
   ),
 ]
 

@@ -1,37 +1,41 @@
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
-import { NamedAPIResource, Pokemon, PokemonType } from 'utils/types'
+import { NamedAPIResource, Pokemon, Type } from 'utils/types'
 
-const client = axios.create({ baseURL: 'https://pokeapi.co' })
+const client = axios.create({ baseURL: 'https://pokeapi.co/api/v2' })
 axiosRetry(client, { retries: 3 })
 
-export type ResponseGetPokemons = {
+export type ResponseResourseList = {
   count: number
   next: string | null
   previous: string | null
   results: NamedAPIResource[]
 }
 
-type ParamsGetPokemons = {
+type PageParams = {
   offset?: number
   limit?: number
 }
 
-export type ResponseGetPokemon = Pokemon
+type IdOrNameParam = string
 
-type ParamsGetPokemon = {
-  idOrName?: string
+const requestResourseLists = <T extends ResponseResourseList>(
+  resourse: string
+): ((params?: PageParams) => Promise<T>) => {
+  return async (params) =>
+    await client
+      .get<T>(resourse, { params })
+      .then(({ data }) => data)
 }
 
-export type ResponseGetPokemonTypes = Array<PokemonType>
+const requestResourse = <T>(resourse: string): ((idOrName: IdOrNameParam) => Promise<T>) => {
+  return async (idOrName) => await client.get<T>(`${resourse}/${idOrName}`).then(({ data }) => data)
+}
 
-export const getPokemons = async (params?: ParamsGetPokemons): Promise<ResponseGetPokemons> =>
-  await client
-    .get<ResponseGetPokemons>('api/v2/pokemon', { params })
-    .then(({ data }) => data)
+export const getPokemons = requestResourseLists('pokemon')
 
-export const getPokemon = async ({ idOrName }: ParamsGetPokemon): Promise<ResponseGetPokemon> =>
-  await client.get<ResponseGetPokemon>(`api/v2/pokemon/${idOrName}`).then(({ data }) => data)
+export const getPokemon = requestResourse<Pokemon>('pokemon')
 
-export const getPokemonTypes = async (): Promise<ResponseGetPokemonTypes> =>
-  await client.get('api/v2/type').then(({ data }) => data)
+export const getTypes = requestResourseLists('type')
+
+export const getType = requestResourse<Type>('type')

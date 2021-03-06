@@ -77,6 +77,42 @@ export type Pokemon = {
   types: Array<PokemonType>
 }
 
+export type TypeRelations = {
+  no_damage_to: Array<NamedAPIResource>
+  half_damage_to: Array<NamedAPIResource>
+  double_damage_to: Array<NamedAPIResource>
+  no_damage_from: Array<NamedAPIResource>
+  half_damage_from: Array<NamedAPIResource>
+  double_damage_from: Array<NamedAPIResource>
+}
+
+export type GenerationGameIndex = {
+  game_index: number
+  generation: NamedAPIResource
+}
+
+export type Name = {
+  name: string
+  language: NamedAPIResource
+}
+
+export type TypePokemon = {
+  slot: number
+  type: NamedAPIResource
+}
+
+export type Type = {
+  id: number
+  name: string
+  damage_relations: TypeRelations
+  game_indices: Array<GenerationGameIndex>
+  generation: NamedAPIResource
+  move_damage_class: NamedAPIResource
+  names: Array<Name>
+  pokemon: Array<TypePokemon>
+  moves: Array<NamedAPIResource>
+}
+
 // this type represent pokemon data full(Pokemon) or partial(NamedAPIResource)
 export type PokemonData = Pokemon | NamedAPIResource
 

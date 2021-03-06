@@ -39,12 +39,14 @@ const StyledFiller = styled.div<Pick<ProgressBarProps, 'percentage' | 'backgroun
     transition: width 2s;
   `}
 `
+const backgroundColorDefault = theme`colors.blue.600`
+const colorDefault = theme`colors.white`
 
 const ProgressBar: FC<ProgressBarProps> = ({
   percentage = 0,
   size = SIZE.MD,
-  backgroundColor = theme`colors.blue.600`,
-  color = theme`colors.white`,
+  backgroundColor = backgroundColorDefault,
+  color = colorDefault,
   children,
 }) => {
   return (

@@ -6,9 +6,12 @@ export type HeaderProps = {
   color?: string
 }
 
+const backgroundColorDefault = theme`colors.blue.600`
+const colorDefault = theme`colors.white`
+
 const Header: FC<HeaderProps> = ({
-  backgroundColor = theme`colors.blue.600`,
-  color = theme`colors.white`,
+  backgroundColor = backgroundColorDefault,
+  color = colorDefault,
   ...props
 }) => (
   <nav

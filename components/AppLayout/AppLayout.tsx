@@ -2,11 +2,13 @@ import { FC, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import tw, { theme } from 'twin.macro'
 import Header from 'components/Header'
 import Search from 'components/Search'
 
 const AppLayout: FC = ({ children }) => {
+  const router = useRouter()
   const [isInputInFocus, setIsInputInFocus] = useState(false)
 
   return (
@@ -29,6 +31,7 @@ const AppLayout: FC = ({ children }) => {
 
         <Search
           css={tw`flex flex-auto min-w-0 max-w-full sm:max-w-sm`}
+          onSearch={(value) => router.push(`/pokemon/${value.toLowerCase()}`)}
           onFocus={() => setIsInputInFocus(true)}
           onBlur={() => setIsInputInFocus(false)}
         />
