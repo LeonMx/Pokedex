@@ -17,7 +17,7 @@ type PageParams = {
   limit?: number
 }
 
-type IdOrNameParam = string
+type IdOrNameParam = string | number
 
 const requestResourseLists = <T extends ResponseResourseList>(
   resourse: string

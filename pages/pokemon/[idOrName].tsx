@@ -1,16 +1,19 @@
 import { FC } from 'react'
 import { GetServerSideProps, NextPage } from 'next'
 import Image from 'next/image'
-import tw, { theme } from 'twin.macro'
+import tw from 'twin.macro'
 import Card from 'components/Card'
 import TypeChip from 'components/TypeChip'
 import { getPokemon } from 'api/pokemon'
 import { Pokemon } from 'utils/types'
-import { STATS } from 'utils/constants'
 import DamageEffectiveness from 'components/DamageEffectiveness'
 import ProgressBar from 'components/ProgressBar'
+import { calculateStatPoints, getColorBaseStat, getUnit } from 'utils/utils'
 
-type PokemonProps = { data?: Pokemon }
+export const TEST_ID_NAME_POKEMON = 'pokemon_name'
+export const TEST_ID_NO_FOUND = 'no_found_pokemon'
+
+type PokemonProps = { pokemon?: Pokemon }
 
 const CardsContainer = tw.div`
   flex
@@ -47,55 +50,28 @@ const ItemsGrid: FC<{ items: string[]; cols?: number; maxCols?: number }> = ({
     ))}
   </ul>
 )
-const calculateStatPoints = (
-  name: string,
-  baseStat: number
-): {
-  baseStat: number
-  percentage: number
-  minPoint: number
-  maxPoint: number
-} => {
-  /* 
-    For calculate max and min stat points:
-  
-    Formula for hp:
-    max: BaseStat x 2 + 204
-    min: BaseStat x 2 + 110
 
-    Formula for other stats:
-    max: ( BaseStat x 2 + 99 ) x 1.1
-    min: ( BaseStat x 2 + 5 ) x 0.9
+const PokemonDetailPage: NextPage<PokemonProps> = ({ pokemon }) => {
+  if (!pokemon) {
+    return (
+      <h1 data-testid={TEST_ID_NO_FOUND} className="text-lg font-bold">
+        No found pokemon
+      </h1>
+    )
+  }
 
-    https://bulbapedia.bulbagarden.net/wiki/Stat#Base_stats
-  */
-  const minPoint = name === STATS.HP ? baseStat * 2 + 110 : (baseStat * 2 + 5) * 0.9
-  const maxPoint = name === STATS.HP ? baseStat * 2 + 204 : (baseStat * 2 + 99) * 1.1
-  const percentage = (baseStat / 180) * 100
-  return { baseStat, percentage, minPoint, maxPoint }
-}
-
-const statColor = {
-  low: theme`colors.red.500`,
-  neutral: theme`colors.yellow.300`,
-  high: theme`colors.green.500`,
-  highest: theme`colors.blue.500`,
-}
-
-const getColorBaseStat = (baseStat: number): string => {
-  if (baseStat < 50) return statColor.low
-
-  if (baseStat < 100) return statColor.neutral
-
-  if (baseStat < 150) return statColor.high
-
-  return statColor.highest
-}
-
-const getUnit = (num: number): string => (num * 0.1).toFixed(2)
-
-const PokemonDetail: NextPage<PokemonProps> = ({ data }) => {
-  const { id, name, sprites, types, height, weight, abilities, stats, moves, game_indices } = data
+  const {
+    id,
+    name,
+    sprites,
+    types,
+    height,
+    weight,
+    abilities,
+    stats,
+    moves,
+    game_indices,
+  } = pokemon
 
   return (
     <>
@@ -106,7 +82,9 @@ const PokemonDetail: NextPage<PokemonProps> = ({ data }) => {
         <div className="flex-row space-y-3">
           <div>
             <h2 className="text-2xl font-bold text-red-400">#{id}</h2>
-            <h1 className="text-3xl capitalize">{name}</h1>
+            <h1 className="text-3xl capitalize" data-testid={TEST_ID_NAME_POKEMON}>
+              {name}
+            </h1>
           </div>
 
           <div className="flex-none flex-wrap">
@@ -160,7 +138,7 @@ const PokemonDetail: NextPage<PokemonProps> = ({ data }) => {
             {stats.map(({ stat: { name }, base_stat }, index) => {
               const { percentage } = calculateStatPoints(name, base_stat)
               return (
-                <>
+                <div key={index}>
                   <span className="capitalize">{name}</span>
 
                   <ProgressBar
@@ -171,7 +149,7 @@ const PokemonDetail: NextPage<PokemonProps> = ({ data }) => {
                   >
                     {base_stat}
                   </ProgressBar>
-                </>
+                </div>
               )
             })}
           </div>
@@ -210,8 +188,8 @@ export const getServerSideProps: GetServerSideProps<PokemonProps> = async ({
   }
 
   return {
-    props: { data: pokemon },
+    props: { pokemon },
   }
 }
 
-export default PokemonDetail
+export default PokemonDetailPage

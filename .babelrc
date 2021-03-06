@@ -3,10 +3,10 @@
   "plugins": [
     "babel-plugin-macros",
     [
-      "babel-plugin-styled-components",
+      "styled-components",
       {
         "ssr": true
       }
-    ],
+    ]
   ]
 }

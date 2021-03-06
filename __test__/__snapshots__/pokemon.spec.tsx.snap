@@ -1,0 +1,602 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pokemon Found pokemon 1`] = `
+<DocumentFragment>
+  <div
+    class="idOrName___StyledDiv-sc-5sbjqh-9 dRXQfl"
+  >
+    <div
+      class="idOrName___StyledDiv2-sc-5sbjqh-10 ja-DrwM"
+    >
+      <div
+        style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+      >
+        <div
+          style="box-sizing: border-box; display: block; max-width: 100%;"
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE1IiBoZWlnaHQ9IjExNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+          />
+        </div>
+        <img
+          decoding="async"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+          style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </div>
+    </div>
+    <div
+      class="idOrName___StyledDiv3-sc-5sbjqh-11 djBpmV"
+    >
+      <div>
+        <h2
+          class="idOrName___StyledH2-sc-5sbjqh-12 jqeCmL"
+        >
+          #1
+        </h2>
+        <h1
+          class="idOrName___StyledH3-sc-5sbjqh-13 ecXbyO"
+          data-testid="pokemon_name"
+        >
+          bulbasaur
+        </h1>
+      </div>
+      <div
+        class="idOrName___StyledDiv4-sc-5sbjqh-14 iRiWWo"
+      >
+        <span
+          class="Badge___StyledSpan-ok0bc8-0 cqoDdZ TypeChip___StyledBadge-sc-1if4k9o-0 kwrHCk"
+        >
+          grass
+        </span>
+        <span
+          class="Badge___StyledSpan-ok0bc8-0 gqjKge TypeChip___StyledBadge-sc-1if4k9o-0 kwrHCk"
+        >
+          poison
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="idOrName__CardsContainer-sc-5sbjqh-0 hsBAbR"
+  >
+    <div
+      class="idOrName__CardsContainer-sc-5sbjqh-0 idOrName___StyledCardsContainer-sc-5sbjqh-1 hsBAbR cZFJeZ"
+    >
+      <div
+        class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-2 idOrName___StyledFlexCard-sc-5sbjqh-6 ghgnYi jBKQuC"
+      >
+        <div
+          class="idOrName__Title-sc-5sbjqh-7 hwvTmN"
+        >
+          Size
+        </div>
+        <div
+          class="idOrName___StyledDiv5-sc-5sbjqh-15 fdnqCf"
+        >
+          <span
+            class="idOrName___StyledSpan-sc-5sbjqh-16 gOCEJF"
+          >
+            Height:
+          </span>
+          <span
+            class="idOrName___StyledSpan2-sc-5sbjqh-17 fYnJbh"
+          >
+            0.70 m
+          </span>
+        </div>
+        <div
+          class="idOrName___StyledDiv6-sc-5sbjqh-18 cTSMKR"
+        >
+          <span
+            class="idOrName___StyledSpan3-sc-5sbjqh-19 eBxLmh"
+          >
+            Weight:
+          </span>
+          <span
+            class="idOrName___StyledSpan4-sc-5sbjqh-20 RPCSz"
+          >
+            6.90 kg
+          </span>
+        </div>
+      </div>
+      <div
+        class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-2 idOrName___StyledFlexCard2-sc-5sbjqh-5 ghgnYi faULin"
+      >
+        <div
+          class="idOrName__Title-sc-5sbjqh-7 hwvTmN"
+        >
+          Abilities
+        </div>
+        <ul
+          class="grid grid-flow-row grid-cols-1 md:grid-cols-1 grid-rows-1 gap-x-5 list-disc list-inside"
+        >
+          <li>
+            overgrow
+          </li>
+          <li>
+            chlorophyll
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-2 ghgnYi"
+    >
+      <div
+        class="idOrName__Title-sc-5sbjqh-7 hwvTmN"
+      >
+        Types defenses
+      </div>
+      <p>
+        The effectiveness of each type on 
+        <span
+          class="idOrName___StyledSpan5-sc-5sbjqh-21 dQuIbn"
+        >
+          bulbasaur
+        </span>
+        .
+      </p>
+      <svg
+        class="Spinner___StyledSvg-sc-1tdtnot-0 jyURzq"
+        fill="none"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          class="Spinner___StyledCircle-sc-1tdtnot-1 iXLzwL"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"
+        />
+        <path
+          class="Spinner___StyledPath-sc-1tdtnot-2 bQXkHa"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-2 ghgnYi"
+    >
+      <div
+        class="idOrName__Title-sc-5sbjqh-7 hwvTmN"
+      >
+        Stats
+      </div>
+      <div
+        class="idOrName___StyledDiv7-sc-5sbjqh-22 iEmPbj"
+      >
+        <div>
+          <span
+            class="idOrName___StyledSpan6-sc-5sbjqh-23 rUTjC"
+          >
+            hp
+          </span>
+          <div
+            class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+          >
+            <div
+              class="ProgressBar__StyledFiller-sc-1tzcbb6-1 fmObxI"
+              color="#fff"
+            >
+              45
+            </div>
+          </div>
+        </div>
+        <div>
+          <span
+            class="idOrName___StyledSpan6-sc-5sbjqh-23 rUTjC"
+          >
+            attack
+          </span>
+          <div
+            class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+          >
+            <div
+              class="ProgressBar__StyledFiller-sc-1tzcbb6-1 jdwXHo"
+              color="#fff"
+            >
+              49
+            </div>
+          </div>
+        </div>
+        <div>
+          <span
+            class="idOrName___StyledSpan6-sc-5sbjqh-23 rUTjC"
+          >
+            defense
+          </span>
+          <div
+            class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+          >
+            <div
+              class="ProgressBar__StyledFiller-sc-1tzcbb6-1 jdwXHo"
+              color="#fff"
+            >
+              49
+            </div>
+          </div>
+        </div>
+        <div>
+          <span
+            class="idOrName___StyledSpan6-sc-5sbjqh-23 rUTjC"
+          >
+            special-attack
+          </span>
+          <div
+            class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+          >
+            <div
+              class="ProgressBar__StyledFiller-sc-1tzcbb6-1 hbjpwR"
+              color="#fff"
+            >
+              65
+            </div>
+          </div>
+        </div>
+        <div>
+          <span
+            class="idOrName___StyledSpan6-sc-5sbjqh-23 rUTjC"
+          >
+            special-defense
+          </span>
+          <div
+            class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+          >
+            <div
+              class="ProgressBar__StyledFiller-sc-1tzcbb6-1 hbjpwR"
+              color="#fff"
+            >
+              65
+            </div>
+          </div>
+        </div>
+        <div>
+          <span
+            class="idOrName___StyledSpan6-sc-5sbjqh-23 rUTjC"
+          >
+            speed
+          </span>
+          <div
+            class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+          >
+            <div
+              class="ProgressBar__StyledFiller-sc-1tzcbb6-1 fmObxI"
+              color="#fff"
+            >
+              45
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-2 idOrName___StyledFlexCard3-sc-5sbjqh-4 ghgnYi cTCCNr"
+    >
+      <div
+        class="idOrName__Title-sc-5sbjqh-7 hwvTmN"
+      >
+        Games where appears
+      </div>
+      <ul
+        class="grid grid-flow-row grid-cols-2 md:grid-cols-3 grid-rows-1 gap-x-5 list-disc list-inside"
+      >
+        <li>
+          red
+        </li>
+        <li>
+          blue
+        </li>
+        <li>
+          yellow
+        </li>
+        <li>
+          gold
+        </li>
+        <li>
+          silver
+        </li>
+        <li>
+          crystal
+        </li>
+        <li>
+          ruby
+        </li>
+        <li>
+          sapphire
+        </li>
+        <li>
+          emerald
+        </li>
+        <li>
+          firered
+        </li>
+        <li>
+          leafgreen
+        </li>
+        <li>
+          diamond
+        </li>
+        <li>
+          pearl
+        </li>
+        <li>
+          platinum
+        </li>
+        <li>
+          heartgold
+        </li>
+        <li>
+          soulsilver
+        </li>
+        <li>
+          black
+        </li>
+        <li>
+          white
+        </li>
+        <li>
+          black-2
+        </li>
+        <li>
+          white-2
+        </li>
+      </ul>
+    </div>
+    <div
+      class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-2 idOrName___StyledFlexCard4-sc-5sbjqh-3 ghgnYi cpsUzj"
+    >
+      <div
+        class="idOrName__Title-sc-5sbjqh-7 hwvTmN"
+      >
+        Moves
+      </div>
+      <ul
+        class="grid grid-flow-row grid-cols-2 md:grid-cols-3 grid-rows-1 gap-x-5 list-disc list-inside"
+      >
+        <li>
+          razor-wind
+        </li>
+        <li>
+          swords-dance
+        </li>
+        <li>
+          cut
+        </li>
+        <li>
+          bind
+        </li>
+        <li>
+          vine-whip
+        </li>
+        <li>
+          headbutt
+        </li>
+        <li>
+          tackle
+        </li>
+        <li>
+          body-slam
+        </li>
+        <li>
+          take-down
+        </li>
+        <li>
+          double-edge
+        </li>
+        <li>
+          growl
+        </li>
+        <li>
+          strength
+        </li>
+        <li>
+          mega-drain
+        </li>
+        <li>
+          leech-seed
+        </li>
+        <li>
+          growth
+        </li>
+        <li>
+          razor-leaf
+        </li>
+        <li>
+          solar-beam
+        </li>
+        <li>
+          poison-powder
+        </li>
+        <li>
+          sleep-powder
+        </li>
+        <li>
+          petal-dance
+        </li>
+        <li>
+          string-shot
+        </li>
+        <li>
+          toxic
+        </li>
+        <li>
+          rage
+        </li>
+        <li>
+          mimic
+        </li>
+        <li>
+          double-team
+        </li>
+        <li>
+          defense-curl
+        </li>
+        <li>
+          light-screen
+        </li>
+        <li>
+          reflect
+        </li>
+        <li>
+          bide
+        </li>
+        <li>
+          sludge
+        </li>
+        <li>
+          skull-bash
+        </li>
+        <li>
+          amnesia
+        </li>
+        <li>
+          flash
+        </li>
+        <li>
+          rest
+        </li>
+        <li>
+          substitute
+        </li>
+        <li>
+          snore
+        </li>
+        <li>
+          curse
+        </li>
+        <li>
+          protect
+        </li>
+        <li>
+          sludge-bomb
+        </li>
+        <li>
+          mud-slap
+        </li>
+        <li>
+          giga-drain
+        </li>
+        <li>
+          endure
+        </li>
+        <li>
+          charm
+        </li>
+        <li>
+          swagger
+        </li>
+        <li>
+          fury-cutter
+        </li>
+        <li>
+          attract
+        </li>
+        <li>
+          sleep-talk
+        </li>
+        <li>
+          return
+        </li>
+        <li>
+          frustration
+        </li>
+        <li>
+          safeguard
+        </li>
+        <li>
+          sweet-scent
+        </li>
+        <li>
+          synthesis
+        </li>
+        <li>
+          hidden-power
+        </li>
+        <li>
+          sunny-day
+        </li>
+        <li>
+          rock-smash
+        </li>
+        <li>
+          facade
+        </li>
+        <li>
+          nature-power
+        </li>
+        <li>
+          ingrain
+        </li>
+        <li>
+          knock-off
+        </li>
+        <li>
+          secret-power
+        </li>
+        <li>
+          grass-whistle
+        </li>
+        <li>
+          bullet-seed
+        </li>
+        <li>
+          magical-leaf
+        </li>
+        <li>
+          natural-gift
+        </li>
+        <li>
+          worry-seed
+        </li>
+        <li>
+          seed-bomb
+        </li>
+        <li>
+          energy-ball
+        </li>
+        <li>
+          leaf-storm
+        </li>
+        <li>
+          power-whip
+        </li>
+        <li>
+          captivate
+        </li>
+        <li>
+          grass-knot
+        </li>
+        <li>
+          venoshock
+        </li>
+        <li>
+          round
+        </li>
+        <li>
+          echoed-voice
+        </li>
+        <li>
+          grass-pledge
+        </li>
+        <li>
+          work-up
+        </li>
+        <li>
+          grassy-terrain
+        </li>
+        <li>
+          confide
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;
