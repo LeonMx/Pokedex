@@ -1,4 +1,4 @@
-import { FC, KeyboardEvent, ChangeEvent, useState } from 'react'
+import { FC, KeyboardEvent, ChangeEvent, useState, ComponentProps } from 'react'
 import { MdSearch } from 'react-icons/md'
 import tw from 'twin.macro'
 import Input, { InputProps } from 'components/Input'
@@ -10,22 +10,13 @@ export type SearchProps = Pick<InputProps, 'onFocus' | 'onBlur' | 'onChange'> &
     onSearch?: (value: string) => void
     loading?: boolean
     children?: never
-  }
+  } & ComponentProps<'div'>
 
-const Search: FC<SearchProps> = ({
-  loading,
-  onFocus,
-  onBlur,
-  onChange,
-  onClick,
-  onSearch,
-  ...rest
-}) => {
+const Search: FC<SearchProps> = ({ loading, onFocus, onBlur, onChange, onSearch, ...rest }) => {
   const [inputValue, setInputValue] = useState('')
 
   const triggerSearch = (): void => {
     onSearch && onSearch(inputValue)
-    setInputValue('')
   }
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>): void => {
@@ -53,7 +44,7 @@ const Search: FC<SearchProps> = ({
 
       <Button
         css={tw`ml-2 bg-blue-600`}
-        disabled={!inputValue || loading}
+        disabled={loading}
         onFocus={onFocus}
         onBlur={onBlur}
         onClick={triggerSearch}

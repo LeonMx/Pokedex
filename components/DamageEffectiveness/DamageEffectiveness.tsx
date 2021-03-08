@@ -37,8 +37,6 @@ const DamageEffectiveness: FC<DamageEffectivenessProps> = ({ types }) => {
     }
   }, [damageFromByType])
 
-  console.log(loading, damageFromByType)
-
   if (loading) return <Spinner />
 
   return (

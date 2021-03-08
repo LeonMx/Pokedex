@@ -1,15 +1,16 @@
-import { FC, useState } from 'react'
+import { FC, useState, createContext } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import tw, { theme } from 'twin.macro'
 import Header from 'components/Header'
 import Search from 'components/Search'
 
+export const SearchContext = createContext({ value: '' })
+
 const AppLayout: FC = ({ children }) => {
-  const router = useRouter()
   const [isInputInFocus, setIsInputInFocus] = useState(false)
+  const [searchValue, setSearchValue] = useState('')
 
   return (
     <main>
@@ -31,13 +32,19 @@ const AppLayout: FC = ({ children }) => {
 
         <Search
           css={tw`flex flex-auto min-w-0 max-w-full sm:max-w-sm`}
-          onSearch={(value) => router.push(`/pokemon/${value.toLowerCase()}`)}
+          onSearch={setSearchValue}
           onFocus={() => setIsInputInFocus(true)}
           onBlur={() => setIsInputInFocus(false)}
         />
       </Header>
 
-      <section className="container my-4 mx-auto sm:my-6">{children}</section>
+      <SearchContext.Provider
+        value={{
+          value: searchValue,
+        }}
+      >
+        <section className="container my-4 mx-auto sm:my-6">{children}</section>
+      </SearchContext.Provider>
     </main>
   )
 }

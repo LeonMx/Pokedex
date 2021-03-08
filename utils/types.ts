@@ -21,7 +21,7 @@ export type PokemonHeldItemVersion = {
 
 export type PokemonHeldItem = {
   item: NamedAPIResource
-  version_details: Array<PokemonHeldItemVersion>
+  version_details: PokemonHeldItemVersion[]
 }
 
 export type PokemonMoveVersion = {
@@ -32,7 +32,7 @@ export type PokemonMoveVersion = {
 
 export type PokemonMove = {
   move: NamedAPIResource
-  version_group_details: Array<PokemonMoveVersion>
+  version_group_details: PokemonMoveVersion[]
 }
 
 export type PokemonSprites = {
@@ -65,25 +65,25 @@ export type Pokemon = {
   is_default: boolean
   order: number
   weight: number
-  abilities: Array<PokemonAbility>
-  forms: Array<NamedAPIResource>
-  game_indices: Array<VersionGameIndex>
-  held_items: Array<PokemonHeldItem>
+  abilities: PokemonAbility[]
+  forms: NamedAPIResource[]
+  game_indices: VersionGameIndex[]
+  held_items: PokemonHeldItem[]
   location_area_encounters: string
-  moves: Array<PokemonMove>
+  moves: PokemonMove[]
   sprites: PokemonSprites
-  species: Array<NamedAPIResource>
-  stats: Array<PokemonStat>
-  types: Array<PokemonType>
+  species: NamedAPIResource[]
+  stats: PokemonStat[]
+  types: PokemonType[]
 }
 
 export type TypeRelations = {
-  no_damage_to: Array<NamedAPIResource>
-  half_damage_to: Array<NamedAPIResource>
-  double_damage_to: Array<NamedAPIResource>
-  no_damage_from: Array<NamedAPIResource>
-  half_damage_from: Array<NamedAPIResource>
-  double_damage_from: Array<NamedAPIResource>
+  no_damage_to: NamedAPIResource[]
+  half_damage_to: NamedAPIResource[]
+  double_damage_to: NamedAPIResource[]
+  no_damage_from: NamedAPIResource[]
+  half_damage_from: NamedAPIResource[]
+  double_damage_from: NamedAPIResource[]
 }
 
 export type GenerationGameIndex = {
@@ -105,12 +105,12 @@ export type Type = {
   id: number
   name: string
   damage_relations: TypeRelations
-  game_indices: Array<GenerationGameIndex>
+  game_indices: GenerationGameIndex[]
   generation: NamedAPIResource
   move_damage_class: NamedAPIResource
-  names: Array<Name>
-  pokemon: Array<TypePokemon>
-  moves: Array<NamedAPIResource>
+  names: Name[]
+  pokemon: TypePokemon[]
+  moves: NamedAPIResource[]
 }
 
 // this type represent pokemon data full(Pokemon) or partial(NamedAPIResource)

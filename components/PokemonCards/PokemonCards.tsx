@@ -6,10 +6,13 @@ import { PokemonData } from 'utils/types'
 import Spinner from 'components/Spinner'
 import PokemonCard from './PokemonCard'
 
+export const TEST_CARDS_ID = 'pokemon_cards'
+
 type PokemonCardsProps = {
-  pokemons?: Array<PokemonData>
+  pokemons?: PokemonData[]
   loading?: boolean
-  onLastCardSeen?: () => void
+  positionBackForCardTarget?: number
+  onCardTargetSeen?: () => void
 }
 
 const WrapperPokemonCard = tw.div`
@@ -18,25 +21,35 @@ const WrapperPokemonCard = tw.div`
   justify-center
 `
 
-const PokemonCards: FC<PokemonCardsProps> = ({ pokemons, loading, onLastCardSeen }) => {
-  const [lastCardRef, isLastCardSeen] = useInView()
+const PokemonCards: FC<PokemonCardsProps> = ({
+  pokemons,
+  loading,
+  positionBackForCardTarget = 0,
+  onCardTargetSeen,
+}) => {
+  const [cardTarget, isCardTargetSeen] = useInView()
 
   useEffect(() => {
-    if (!loading && isLastCardSeen) {
-      onLastCardSeen && onLastCardSeen()
+    if (!loading && isCardTargetSeen) {
+      onCardTargetSeen && onCardTargetSeen()
     }
-  }, [loading, isLastCardSeen, onLastCardSeen])
+  }, [loading, isCardTargetSeen, onCardTargetSeen])
+
+  if (!pokemons?.length) return <div ref={cardTarget} />
+
+  const calculateIndex = pokemons.length - 1 - positionBackForCardTarget
+  const cardTargetIndex = calculateIndex < 0 ? pokemons?.length - 1 : calculateIndex
 
   return (
-    <WrapperPokemonCard>
+    <WrapperPokemonCard data-testid={TEST_CARDS_ID}>
       {pokemons?.map((pokemon, index) => (
         <Link key={index} href={`/pokemon/${pokemon.name}`}>
-          <a ref={index === pokemons.length - 1 ? lastCardRef : null}>
+          <a className="flex justify-center" ref={index === cardTargetIndex ? cardTarget : null}>
             <PokemonCard pokemon={pokemon} />
           </a>
         </Link>
       ))}
-      <div css={tw`flex flex-grow w-full justify-center m-4`}>{loading && <Spinner />}</div>
+      <div className="flex flex-grow w-full justify-center m-4">{loading && <Spinner />}</div>
     </WrapperPokemonCard>
   )
 }

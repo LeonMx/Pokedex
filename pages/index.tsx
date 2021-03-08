@@ -1,27 +1,29 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useContext } from 'react'
 import { NextPage, GetServerSideProps } from 'next'
-import { getPokemons, getPokemon } from 'api/pokemon'
-import { isPokemonResolved, PokemonData } from 'utils/types'
 import PokemonCards from 'components/PokemonCards'
+import { getPokemons, getPokemon, ResponseResourseList } from 'api/pokemon'
+import { isPokemonResolved, PokemonData } from 'utils/types'
+import { SearchContext } from 'components/AppLayout'
 
 const LIMIT = 20
-export const CARDS_ID = 'pokemon_cards'
 
 type IndexPageProps = {
-  pokemons?: Array<PokemonData>
+  pokemons?: PokemonData[]
   noLoadMore?: boolean
-  onLoadNextPage?: () => void
 }
 
-const IndexPage: NextPage<IndexPageProps> = ({ pokemons, noLoadMore, onLoadNextPage }) => {
+const IndexPage: NextPage<IndexPageProps> = ({ pokemons, noLoadMore }) => {
+  const initPage = Math.trunc((pokemons?.length ?? 0) / LIMIT)
+  const { value: searchValue } = useContext(SearchContext)
   const [loadingPokemonList, setLoadingPokemonList] = useState(false)
-  const [isLastCardSeen, setIsLastCardSeen] = useState(false)
+  const [isCardTargetSeen, setIsCardTargetSeen] = useState(false)
   const [noMore, setNoMore] = useState(noLoadMore)
   const [pokemonsMap] = useState(new Map<PokemonData['name'], PokemonData>())
   const [pokemonsBacklog, setPokemonsBacklog] = useState(pokemons ?? [])
   const [pokemonsLoaded, setPokemonsLoaded] = useState<string[]>([])
   const [pokemonList, setPokemonList] = useState(pokemons)
-  const [page, setPage] = useState(pokemons ? 1 : 0)
+  const [pokemonFiltered, setPokemonFiltered] = useState<PokemonData[]>()
+  const [page, setPage] = useState(initPage)
 
   const loadMorePokemos = useCallback((): void => {
     const offset = page * LIMIT
@@ -34,10 +36,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ pokemons, noLoadMore, onLoadNextP
     setLoadingPokemonList(true)
   }, [page])
 
-  const handleLastCardSeen = () => {
-    setIsLastCardSeen(true)
-    onLoadNextPage && onLoadNextPage()
-  }
+  const handleCardTargetSeen = () => void setIsCardTargetSeen(true)
 
   useEffect(() => {
     if (page && !pokemonsBacklog.length) {
@@ -47,34 +46,33 @@ const IndexPage: NextPage<IndexPageProps> = ({ pokemons, noLoadMore, onLoadNextP
     }
 
     // add new or upgrade pokemon to list
-    const setPokemonToList = (pokemon): void => {
+    const setPokemonToList = (pokemon: PokemonData): void => {
       pokemonsMap.set(pokemon.name, pokemon)
       // convertir el map en array para poder renderizar
       setPokemonList(Array.from(pokemonsMap.values()))
-      setIsLastCardSeen(false)
+      setIsCardTargetSeen(false)
     }
 
-    pokemonsBacklog.map((pokemon) => {
+    pokemonsBacklog.forEach((pokemon) => {
       const { name } = pokemon
+
+      setPokemonToList(pokemon)
 
       // is not necesary upgrade pokemon data when was before resolved
       if (isPokemonResolved(pokemon)) {
         return
       }
 
-      setPokemonToList(pokemon)
-
-      return getPokemon(name)
+      getPokemon(name)
         .then((pokemon) => {
           setPokemonToList(pokemon)
-          setPokemonsLoaded((prev) => [...prev, name])
-          return pokemon
         })
-        .catch(async () => {
-          return
+        .finally(() => {
+          setPokemonsLoaded((prev) => [...prev, name])
         })
     })
-  }, [page, pokemonsBacklog, pokemonsMap])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pokemonsBacklog, pokemonsMap])
 
   useEffect(() => {
     const allPokemonLoaded = pokemonsBacklog.every(({ name }) => pokemonsLoaded.includes(name))
@@ -86,35 +84,65 @@ const IndexPage: NextPage<IndexPageProps> = ({ pokemons, noLoadMore, onLoadNextP
   }, [pokemonsBacklog, pokemonsLoaded])
 
   useEffect(() => {
-    if (page === 0) {
-      loadMorePokemos()
-    }
-  }, [page, loadMorePokemos])
+    !pokemons?.length && loadMorePokemos()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pokemons])
 
   useEffect(() => {
-    if (!noMore && !loadingPokemonList && isLastCardSeen) {
+    if (!noMore && !loadingPokemonList && isCardTargetSeen) {
       loadMorePokemos()
     }
-  }, [noMore, loadingPokemonList, isLastCardSeen, loadMorePokemos])
+  }, [noMore, loadingPokemonList, isCardTargetSeen, loadMorePokemos])
+
+  useEffect(() => {
+    if (!searchValue) {
+      setPokemonFiltered(pokemonList)
+    }
+
+    setPokemonFiltered(
+      pokemonList?.filter((pokemon) => {
+        if (isPokemonResolved(pokemon)) {
+          return (
+            pokemon.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+            pokemon.id.toString().includes(searchValue.toLowerCase())
+          )
+        }
+
+        return false
+      })
+    )
+  }, [pokemonList, searchValue])
 
   return (
-    <>
-      <PokemonCards
-        data-testid={CARDS_ID}
-        pokemons={pokemonList}
-        loading={loadingPokemonList}
-        onLastCardSeen={handleLastCardSeen}
-      />
-    </>
+    <PokemonCards
+      pokemons={pokemonFiltered}
+      loading={loadingPokemonList}
+      positionBackForCardTarget={LIMIT / 2}
+      onCardTargetSeen={handleCardTargetSeen}
+    />
   )
 }
 
 export const getServerSideProps: GetServerSideProps<IndexPageProps> = async () => {
-  const response = await getPokemons().catch(() => undefined)
+  const response: ResponseResourseList | undefined = await getPokemons().catch(() => undefined)
+
+  if (!response) {
+    return {
+      props: {
+        pokemons: null,
+      },
+    }
+  }
+
+  const pokemons = []
+
+  for (const result of response.results) {
+    pokemons.push(await getPokemon(result.name).catch(() => undefined))
+  }
 
   return {
     props: {
-      pokemons: response?.results ?? [],
+      pokemons,
     },
   }
 }

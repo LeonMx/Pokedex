@@ -3,10 +3,10 @@
 exports[`Pokemon Found pokemon 1`] = `
 <DocumentFragment>
   <div
-    class="idOrName___StyledDiv-sc-5sbjqh-9 dRXQfl"
+    class="idOrName___StyledDiv2-sc-5sbjqh-9 cZnTYL"
   >
     <div
-      class="idOrName___StyledDiv2-sc-5sbjqh-10 ja-DrwM"
+      class="idOrName___StyledDiv3-sc-5sbjqh-10 bhtdmV"
     >
       <div
         style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
@@ -30,23 +30,23 @@ exports[`Pokemon Found pokemon 1`] = `
       </div>
     </div>
     <div
-      class="idOrName___StyledDiv3-sc-5sbjqh-11 djBpmV"
+      class="idOrName___StyledDiv4-sc-5sbjqh-11 jZmcZS"
     >
       <div>
         <h2
-          class="idOrName___StyledH2-sc-5sbjqh-12 jqeCmL"
+          class="idOrName___StyledH-sc-5sbjqh-12 gWcCDd"
         >
           #1
         </h2>
         <h1
-          class="idOrName___StyledH3-sc-5sbjqh-13 ecXbyO"
+          class="idOrName___StyledH2-sc-5sbjqh-13 RnExT"
           data-testid="pokemon_name"
         >
           bulbasaur
         </h1>
       </div>
       <div
-        class="idOrName___StyledDiv4-sc-5sbjqh-14 iRiWWo"
+        class="idOrName___StyledDiv5-sc-5sbjqh-14 gswNHl"
       >
         <span
           class="Badge___StyledSpan-ok0bc8-0 cqoDdZ TypeChip___StyledBadge-sc-1if4k9o-0 kwrHCk"
@@ -62,58 +62,58 @@ exports[`Pokemon Found pokemon 1`] = `
     </div>
   </div>
   <div
-    class="idOrName__CardsContainer-sc-5sbjqh-0 hsBAbR"
+    class="idOrName__CardsContainer-sc-5sbjqh-0 jPJrMR"
   >
     <div
-      class="idOrName__CardsContainer-sc-5sbjqh-0 idOrName___StyledCardsContainer-sc-5sbjqh-1 hsBAbR cZFJeZ"
+      class="idOrName__CardsContainer-sc-5sbjqh-0 hraCyU"
     >
       <div
-        class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-2 idOrName___StyledFlexCard-sc-5sbjqh-6 ghgnYi jBKQuC"
+        class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-1 fuGMUl"
       >
         <div
-          class="idOrName__Title-sc-5sbjqh-7 hwvTmN"
+          class="idOrName__Title-sc-5sbjqh-6 bywpKM"
         >
           Size
         </div>
         <div
-          class="idOrName___StyledDiv5-sc-5sbjqh-15 fdnqCf"
+          class="idOrName___StyledDiv-sc-5sbjqh-3 daXHih"
         >
           <span
-            class="idOrName___StyledSpan-sc-5sbjqh-16 gOCEJF"
+            class="idOrName___StyledSpan-sc-5sbjqh-4 chDzbe"
           >
-            Height:
+            Height
           </span>
           <span
-            class="idOrName___StyledSpan2-sc-5sbjqh-17 fYnJbh"
+            class="idOrName___StyledSpan2-sc-5sbjqh-5 hViBoq"
           >
             0.70 m
           </span>
         </div>
         <div
-          class="idOrName___StyledDiv6-sc-5sbjqh-18 cTSMKR"
+          class="idOrName___StyledDiv-sc-5sbjqh-3 daXHih"
         >
           <span
-            class="idOrName___StyledSpan3-sc-5sbjqh-19 eBxLmh"
+            class="idOrName___StyledSpan-sc-5sbjqh-4 chDzbe"
           >
-            Weight:
+            Weight
           </span>
           <span
-            class="idOrName___StyledSpan4-sc-5sbjqh-20 RPCSz"
+            class="idOrName___StyledSpan2-sc-5sbjqh-5 hViBoq"
           >
             6.90 kg
           </span>
         </div>
       </div>
       <div
-        class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-2 idOrName___StyledFlexCard2-sc-5sbjqh-5 ghgnYi faULin"
+        class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-1 fuGMUl"
       >
         <div
-          class="idOrName__Title-sc-5sbjqh-7 hwvTmN"
+          class="idOrName__Title-sc-5sbjqh-6 bywpKM"
         >
           Abilities
         </div>
         <ul
-          class="grid grid-flow-row grid-cols-1 md:grid-cols-1 grid-rows-1 gap-x-5 list-disc list-inside"
+          class="idOrName__GridCols1-sc-5sbjqh-7 kqEYmf"
         >
           <li>
             overgrow
@@ -125,22 +125,13 @@ exports[`Pokemon Found pokemon 1`] = `
       </div>
     </div>
     <div
-      class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-2 ghgnYi"
+      class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-1 fuGMUl"
     >
       <div
-        class="idOrName__Title-sc-5sbjqh-7 hwvTmN"
+        class="idOrName__Title-sc-5sbjqh-6 bywpKM"
       >
         Types defenses
       </div>
-      <p>
-        The effectiveness of each type on 
-        <span
-          class="idOrName___StyledSpan5-sc-5sbjqh-21 dQuIbn"
-        >
-          bulbasaur
-        </span>
-        .
-      </p>
       <svg
         class="Spinner___StyledSvg-sc-1tdtnot-0 jyURzq"
         fill="none"
@@ -163,130 +154,138 @@ exports[`Pokemon Found pokemon 1`] = `
       </svg>
     </div>
     <div
-      class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-2 ghgnYi"
+      class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-1 idOrName___StyledFlexCard-sc-5sbjqh-2 fuGMUl kfFPHR"
     >
       <div
-        class="idOrName__Title-sc-5sbjqh-7 hwvTmN"
+        class="idOrName__Title-sc-5sbjqh-6 bywpKM"
       >
         Stats
       </div>
       <div
-        class="idOrName___StyledDiv7-sc-5sbjqh-22 iEmPbj"
+        class="idOrName___StyledDiv6-sc-5sbjqh-15 zHTwa"
       >
-        <div>
-          <span
-            class="idOrName___StyledSpan6-sc-5sbjqh-23 rUTjC"
-          >
-            hp
-          </span>
+        <span
+          class="idOrName___StyledSpan3-sc-5sbjqh-16 kaFMpx"
+        >
+          hp
+        </span>
+        <div
+          class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+        >
           <div
-            class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+            class="ProgressBar__StyledFiller-sc-1tzcbb6-1 fmObxI"
+            color="#fff"
           >
-            <div
-              class="ProgressBar__StyledFiller-sc-1tzcbb6-1 fmObxI"
-              color="#fff"
-            >
-              45
-            </div>
+            45
           </div>
         </div>
-        <div>
-          <span
-            class="idOrName___StyledSpan6-sc-5sbjqh-23 rUTjC"
-          >
-            attack
-          </span>
+      </div>
+      <div
+        class="idOrName___StyledDiv6-sc-5sbjqh-15 zHTwa"
+      >
+        <span
+          class="idOrName___StyledSpan3-sc-5sbjqh-16 kaFMpx"
+        >
+          attack
+        </span>
+        <div
+          class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+        >
           <div
-            class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+            class="ProgressBar__StyledFiller-sc-1tzcbb6-1 jdwXHo"
+            color="#fff"
           >
-            <div
-              class="ProgressBar__StyledFiller-sc-1tzcbb6-1 jdwXHo"
-              color="#fff"
-            >
-              49
-            </div>
+            49
           </div>
         </div>
-        <div>
-          <span
-            class="idOrName___StyledSpan6-sc-5sbjqh-23 rUTjC"
-          >
-            defense
-          </span>
+      </div>
+      <div
+        class="idOrName___StyledDiv6-sc-5sbjqh-15 zHTwa"
+      >
+        <span
+          class="idOrName___StyledSpan3-sc-5sbjqh-16 kaFMpx"
+        >
+          defense
+        </span>
+        <div
+          class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+        >
           <div
-            class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+            class="ProgressBar__StyledFiller-sc-1tzcbb6-1 jdwXHo"
+            color="#fff"
           >
-            <div
-              class="ProgressBar__StyledFiller-sc-1tzcbb6-1 jdwXHo"
-              color="#fff"
-            >
-              49
-            </div>
+            49
           </div>
         </div>
-        <div>
-          <span
-            class="idOrName___StyledSpan6-sc-5sbjqh-23 rUTjC"
-          >
-            special-attack
-          </span>
+      </div>
+      <div
+        class="idOrName___StyledDiv6-sc-5sbjqh-15 zHTwa"
+      >
+        <span
+          class="idOrName___StyledSpan3-sc-5sbjqh-16 kaFMpx"
+        >
+          special-attack
+        </span>
+        <div
+          class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+        >
           <div
-            class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+            class="ProgressBar__StyledFiller-sc-1tzcbb6-1 hbjpwR"
+            color="#fff"
           >
-            <div
-              class="ProgressBar__StyledFiller-sc-1tzcbb6-1 hbjpwR"
-              color="#fff"
-            >
-              65
-            </div>
+            65
           </div>
         </div>
-        <div>
-          <span
-            class="idOrName___StyledSpan6-sc-5sbjqh-23 rUTjC"
-          >
-            special-defense
-          </span>
+      </div>
+      <div
+        class="idOrName___StyledDiv6-sc-5sbjqh-15 zHTwa"
+      >
+        <span
+          class="idOrName___StyledSpan3-sc-5sbjqh-16 kaFMpx"
+        >
+          special-defense
+        </span>
+        <div
+          class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+        >
           <div
-            class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+            class="ProgressBar__StyledFiller-sc-1tzcbb6-1 hbjpwR"
+            color="#fff"
           >
-            <div
-              class="ProgressBar__StyledFiller-sc-1tzcbb6-1 hbjpwR"
-              color="#fff"
-            >
-              65
-            </div>
+            65
           </div>
         </div>
-        <div>
-          <span
-            class="idOrName___StyledSpan6-sc-5sbjqh-23 rUTjC"
-          >
-            speed
-          </span>
+      </div>
+      <div
+        class="idOrName___StyledDiv6-sc-5sbjqh-15 zHTwa"
+      >
+        <span
+          class="idOrName___StyledSpan3-sc-5sbjqh-16 kaFMpx"
+        >
+          speed
+        </span>
+        <div
+          class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+        >
           <div
-            class="ProgressBar__StyledContainer-sc-1tzcbb6-0 htWqZh"
+            class="ProgressBar__StyledFiller-sc-1tzcbb6-1 fmObxI"
+            color="#fff"
           >
-            <div
-              class="ProgressBar__StyledFiller-sc-1tzcbb6-1 fmObxI"
-              color="#fff"
-            >
-              45
-            </div>
+            45
           </div>
         </div>
       </div>
     </div>
     <div
-      class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-2 idOrName___StyledFlexCard3-sc-5sbjqh-4 ghgnYi cTCCNr"
+      class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-1 fuGMUl"
     >
       <div
-        class="idOrName__Title-sc-5sbjqh-7 hwvTmN"
+        class="idOrName__Title-sc-5sbjqh-6 bywpKM"
       >
         Games where appears
       </div>
       <ul
-        class="grid grid-flow-row grid-cols-2 md:grid-cols-3 grid-rows-1 gap-x-5 list-disc list-inside"
+        class="idOrName__GridCols3-sc-5sbjqh-8 jZLtT"
       >
         <li>
           red
@@ -351,15 +350,15 @@ exports[`Pokemon Found pokemon 1`] = `
       </ul>
     </div>
     <div
-      class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-2 idOrName___StyledFlexCard4-sc-5sbjqh-3 ghgnYi cpsUzj"
+      class="Card___StyledDiv-sc-15iomcm-0 dpmhls idOrName__FlexCard-sc-5sbjqh-1 fuGMUl"
     >
       <div
-        class="idOrName__Title-sc-5sbjqh-7 hwvTmN"
+        class="idOrName__Title-sc-5sbjqh-6 bywpKM"
       >
         Moves
       </div>
       <ul
-        class="grid grid-flow-row grid-cols-2 md:grid-cols-3 grid-rows-1 gap-x-5 list-disc list-inside"
+        class="idOrName__GridCols3-sc-5sbjqh-8 jZLtT"
       >
         <li>
           razor-wind

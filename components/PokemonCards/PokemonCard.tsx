@@ -16,11 +16,10 @@ const StyledCard = tw(Card)`
   flex-col
   items-center
   justify-center
-  min-w-40
+  min-w-44
   w-full
-  max-w-44
+  max-w-52
   h-60
-  mx-auto
   m-2
   transition
   cursor-pointer
